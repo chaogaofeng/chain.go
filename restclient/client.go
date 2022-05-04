@@ -19,10 +19,6 @@ var (
 	HTTPTimeout = 10 // 10s
 )
 
-func init() {
-	cosmoscmd.SetPrefixes(app.AccountAddressPrefix)
-}
-
 type RestClient struct {
 	baseUrl       string
 	chainID       string
@@ -42,7 +38,8 @@ type RestClient struct {
  * @param gasAdjustment  gas调整倍数。自动计算gasLimit时使用。例： 1.1
  * @return SDK客户端
  */
-func New(baseUrl string, chainID string, gasPrice types.DecCoin, gasAdjustment types.Dec) *RestClient {
+func New(baseUrl string, chainID string, gasPrice types.DecCoin, gasAdjustment types.Dec, accountAddressPrefix string) *RestClient {
+	cosmoscmd.SetPrefixes(accountAddressPrefix)
 	return &RestClient{
 		baseUrl:        baseUrl,
 		chainID:        chainID,

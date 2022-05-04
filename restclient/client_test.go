@@ -2,6 +2,7 @@ package restclient
 
 import (
 	"fmt"
+	"github.com/glodnet/chain/app"
 	"testing"
 
 	"github.com/glodnet/chain.go/types"
@@ -16,6 +17,7 @@ var (
 		"gnchain",
 		types.NewDecCoinFromDec("ugnc", types.NewDecFromIntWithPrec(types.NewInt(15), 2)), // 0.15ugnc
 		types.NewDecFromIntWithPrec(types.NewInt(15), 1),                                  // 1.5
+		app.AccountAddressPrefix,
 	)
 
 	mnemonic     = "apology false junior asset sphere puppy upset dirt miracle rice horn spell ring vast wrist crisp snake oak give cement pause swallow barely clever"
